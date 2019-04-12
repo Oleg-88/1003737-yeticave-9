@@ -1,7 +1,7 @@
 # Личный проект «YetiCave»
 
 * Студент: [Oleg Russak](https://up.htmlacademy.ru/php/9/user/1003737).
-* Наставник: `Денис Байдаров`.
+* Наставник: `Денис Байдаров`(https://htmlacademy.ru/profile/4er).
 
 ---
 
