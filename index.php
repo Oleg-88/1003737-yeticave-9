@@ -105,7 +105,7 @@ $user_name = 'Олег Русак';
             $cat_cur = 0;
             ?>
             <li class="promo__item promo__item--boards">
-                <?php while ($cat_cur <= $cat_num): ?>
+                <?php while ($cat_cur < $cat_num): ?>
                     <a class="promo__link" href="pages/all-lots.html"><?=$categories[$cat_cur];?></a>
                     <?php $cat_cur++; ?>
                 <?php endwhile; ?>
