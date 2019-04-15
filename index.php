@@ -136,15 +136,7 @@ $user_name = 'Олег Русак';
 <footer class="main-footer">
     <nav class="nav">
         <ul class="nav__list container">
-            <?php
-            $cat_num = count($categories);
-            $cat_cur = 0;
-            while ($cat_cur < $cat_num): ?>
-                <li class="nav__item">
-                    <a href="pages/all-lots.html"><?=$categories[$cat_cur];?></a>
-                </li>
-            <?php $cat_cur++;
-            endwhile; ?>
+
         </ul>
     </nav>
     <div class="main-footer__bottom container">
