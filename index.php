@@ -99,15 +99,13 @@ $user_name = 'Олег Русак';
         <h2 class="promo__title">Нужен стафф для катки?</h2>
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
-            <!--заполните этот список из массива категорий-->
             <?php
             $cat_num = count($categories);
             $cat_cur = 0;
             while ($cat_cur < $cat_num): ?>
-            <li class="promo__item promo__item--boards">
-
+                <li class="promo__item promo__item--boards">
                     <a class="promo__link" href="pages/all-lots.html"><?=$categories[$cat_cur];?></a>
-            </li>
+                </li>
             <?php $cat_cur++;
             endwhile; ?>
         </ul>
@@ -144,10 +142,15 @@ $user_name = 'Олег Русак';
 <footer class="main-footer">
     <nav class="nav">
         <ul class="nav__list container">
-            <!--заполните этот список из массива категорий-->
-            <li class="nav__item">
-                <a href="pages/all-lots.html">Название категории</a>
-            </li>
+            <?php
+            $cat_num = count($categories);
+            $cat_cur = 0;
+            while ($cat_cur < $cat_num): ?>
+                <li class="nav__item">
+                    <a href="pages/all-lots.html"><?=$categories[$cat_cur];?></a>
+                </li>
+            <?php $cat_cur++;
+            endwhile; ?>
         </ul>
     </nav>
     <div class="main-footer__bottom container">
