@@ -49,14 +49,66 @@ $user_name = 'Олег Русак';
     </div>
 </header>
 
+<?php
+    $categories = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"];
+?>
+
+<?php
+    $items = [
+        [
+                'name' => '2014 Rossignol District Snowboard',
+                'category' => 'Доски и лыжи',
+                'price' => '10999',
+                'pic-url' => 'img/lot-1.jpg'
+        ],
+        [
+            'name' => 'DC Ply Mens 2016/2017 Snowboard',
+            'category' => 'Доски и лыжи',
+            'price' => '159999',
+            'pic-url' => 'img/lot-2.jpg'
+        ],
+        [
+            'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
+            'category' => 'Крепления',
+            'price' => '8000',
+            'pic-url' => 'img/lot-3.jpg'
+        ],
+        [
+            'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
+            'category' => 'Ботинки',
+            'price' => '10999',
+            'pic-url' => 'img/lot-4.jpg'
+        ],
+        [
+            'name' => 'Куртка для сноуборда DC Mutiny Charocal',
+            'category' => 'Одежда',
+            'price' => '7500',
+            'pic-url' => 'img/lot-5.jpg'
+        ],
+        [
+            'name' => 'Маска Oakley Canopy',
+            'category' => 'Разное',
+            'price' => '5400',
+            'pic-url' => 'img/lot-6.jpg'
+        ]
+    ];
+?>
+
 <main class="container">
     <section class="promo">
         <h2 class="promo__title">Нужен стафф для катки?</h2>
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
             <!--заполните этот список из массива категорий-->
+            <?php
+            $cat_num = count($categories);
+            $cat_cur = 0;
+            ?>
             <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html">Имя категории</a>
+                <?php while ($cat_cur <= $cat_num): ?>
+                    <a class="promo__link" href="pages/all-lots.html"><?=$categories[$cat_cur];?></a>
+                    <?php $cat_cur++; ?>
+                <?php endwhile; ?>
             </li>
         </ul>
     </section>
