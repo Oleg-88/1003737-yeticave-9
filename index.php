@@ -99,13 +99,15 @@ $user_name = 'Олег Русак';
         <h2 class="promo__title">Нужен стафф для катки?</h2>
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
-            <!--отсюда вырезал-->
-            <?php foreach ($items as $key => $value): ?>
+            <?php
+            $cat_num = count($categories);
+            $cat_cur = 0;
+            while ($cat_cur < $cat_num): ?>
                 <li class="promo__item promo__item--boards">
-                    <a class="promo__link" href="pages/all-lots.html"><?=$value;?></a>
+                    <a class="promo__link" href="pages/all-lots.html"><?=$categories[$cat_cur];?></a>
                 </li>
-            <?php endforeach; ?>
-            <!--отсюда вырезал-->
+            <?php $cat_cur++;
+            endwhile; ?>
         </ul>
     </section>
     <section class="lots">
