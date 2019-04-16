@@ -92,7 +92,7 @@ $user_name = 'Олег Русак';
 
     function prices($item)
         {   $price0 = ceil($item);
-            if ($price0 < 1000) {
+            if ($price0 > 1000) {
                 $price_0 = number_format($price0, 0, "", " ");
                 } else {
                 $price_0 = $price0;
