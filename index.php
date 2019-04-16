@@ -89,6 +89,16 @@ $user_name = 'Олег Русак';
             'image' => 'img/lot-6.jpg'
         ]
     ];
+
+    function prices($item)
+        {   $price0 = ceil($item);
+            if ($price0 < 1000) {
+                $price_0 = number_format($price0, 0, '', ' ');
+                } else {
+                $price_0 = $price0;
+                }
+            print($price_0 . ' ₽');
+        }
 ?>
 
 <main class="container">
@@ -119,7 +129,7 @@ $user_name = 'Олег Русак';
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$item['price'];?><b class="rub">р</b></span>
+                            <?php prices($item['price']: ?>
                         </div>
                         <div class="lot__timer timer">
                             12:23
