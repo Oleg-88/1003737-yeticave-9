@@ -89,6 +89,10 @@ $user_name = 'Олег Русак';
             'image' => 'img/lot-6.jpg'
         ]
     ];
+    function prices($item) {
+        $price_form = ceil($item);
+        return $price_form = number_format($price_form, 0, "", " ").' ₽';
+    }
 ?>
 
 <main class="container">
@@ -119,7 +123,7 @@ $user_name = 'Олег Русак';
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$item['price'];?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?= prices($item['price']);?></span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
