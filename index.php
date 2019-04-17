@@ -91,7 +91,7 @@ $user_name = 'Олег Русак';
     ];
     function prices($item) {
         $price_form = ceil($item);
-        $price_form = number_format($price_form, 0, "", " ") . " ₽";
+        return $price_form = number_format($price_form, 0, "", " ").' ₽';
     }
 ?>
 
@@ -123,8 +123,7 @@ $user_name = 'Олег Русак';
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <?php $prices_form = $item['price'];
-                            print $prices_form;?>
+                            <?= prices($item['price']);?>
                         </div>
                         <div class="lot__timer timer">
                             12:23
