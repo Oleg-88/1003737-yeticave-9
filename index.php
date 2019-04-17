@@ -123,7 +123,8 @@ $user_name = 'Олег Русак';
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <?php print(prices($item['price']);?>
+                            <?php $prices_form = $item['price'];
+                            print $prices_form;?>
                         </div>
                         <div class="lot__timer timer">
                             12:23
