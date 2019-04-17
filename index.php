@@ -91,7 +91,7 @@ $user_name = 'Олег Русак';
     ];
     function prices($item) {
         $price_form = ceil($item);
-        $price_form = number_format($price0, 0, "", " ") . . ' ₽';
+        $price_form = number_format($price0, 0, "", " ") . ' ₽';
 ?>
 
 <main class="container">
