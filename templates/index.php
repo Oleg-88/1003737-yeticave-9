@@ -14,7 +14,12 @@
         <h2>Открытые лоты</h2>
     </div>
     <ul class="lots__list">
-        <?php foreach ($items as $item): ?>
+        <?php foreach ($items as $item):
+            date_default_timezone_set('Europe/Berlin');
+
+            $end_time_sec = strtotime("tomorrow midnight") - strtotime("now");
+            $end_time = date("H:i", strtotime("today") + $end_time_sec);
+            ?>
             <li class="lots__item lot">
                 <div class="lot__image">
                     <img src="<?=$item['image']; ?>" width="350" height="260" alt="">
@@ -27,8 +32,8 @@
                             <span class="lot__amount">Стартовая цена</span>
                             <span class="lot__cost"><?=prices($item['price']);?></span>
                         </div>
-                        <div class="lot__timer timer">
-                            12:23
+                        <div class="lot__timer timer <?php if ($end_time_sec < 3601): ?>timer--finishing<?php endif; ?>">
+                            <?=$end_time; ?>
                         </div>
                     </div>
                 </div>
