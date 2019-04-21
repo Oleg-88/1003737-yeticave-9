@@ -5,7 +5,8 @@ require_once 'helpers.php';
 
 $page_content = include_template('index.php', [
     'categories' => $categories,
-    'items' => $items
+    'items' => $items,
+    'end_date' => $end_date
     ]
 );
 

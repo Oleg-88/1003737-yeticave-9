@@ -149,11 +149,7 @@ function prices($item) {
 }
 
 function get_end_time($end_date) {
-    date_default_timezone_set('Europe/Berlin');
-    $end_date = strtotime("tomorrow midnight");
     $end_time_sec = $end_date - strtotime("now");
     $end_time = date("H:i", strtotime("today") + $end_time_sec);
     return $end_time;
 }
-
-
