@@ -5,7 +5,6 @@ $user_name = 'Олег Русак';
 
 date_default_timezone_set('Europe/Berlin');
 $end_date = strtotime("tomorrow midnight");
-$cur_date = strtotime("now");
 
 $categories = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"];
 $items = [
