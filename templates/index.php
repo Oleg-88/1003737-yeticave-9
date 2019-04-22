@@ -27,8 +27,8 @@
                             <span class="lot__amount">Стартовая цена</span>
                             <span class="lot__cost"><?=prices($item['price']);?></span>
                         </div>
-                        <div class="lot__timer timer <?php if (strtotime("tomorrow midnight") - strtotime("now") < 3601): ?>timer--finishing<?php endif; ?>">
-                            <?=get_end_time($end_date); ?>
+                        <div class="lot__timer timer <?php if (get_enough_time($end_date, $cur_date)): ?>timer--finishing<?php endif; ?>">
+                            <?=get_end_time($end_date, $cur_date); ?>
                         </div>
                     </div>
                 </div>
