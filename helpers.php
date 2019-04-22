@@ -155,10 +155,9 @@ function get_end_time($end_date) {
 }
 
 function get_enough_time($end_date) {
+    $not_enough_time = false;
     if($end_date - strtotime("now") < 3601){
         $not_enough_time = true;
-    } else {
-        $not_enough_time = false;
     }
     return $not_enough_time;
 }
