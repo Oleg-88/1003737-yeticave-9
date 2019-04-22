@@ -148,4 +148,16 @@ function prices($item) {
     return $price_form = number_format($price_form, 0, "", " ").' ₽';
 }
 
+function get_end_time($end_date) {
+    $end_time_sec = $end_date - strtotime("now");
+    $end_time = date("H:i", strtotime("today") + $end_time_sec);
+    return $end_time;
+}
 
+function get_enough_time($end_date) {
+    $not_enough_time = false;
+    if($end_date - strtotime("now") < 3601){
+        $not_enough_time = true;
+    }
+    return $not_enough_time;
+}

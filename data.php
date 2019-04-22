@@ -3,6 +3,9 @@
 $is_auth = rand(0, 1);
 $user_name = 'Олег Русак';
 
+date_default_timezone_set('Europe/Berlin');
+$end_date = strtotime("tomorrow midnight");
+
 $categories = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"];
 $items = [
     [
