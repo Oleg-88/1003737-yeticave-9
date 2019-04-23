@@ -46,5 +46,4 @@ CREATE TABLE users (
 CREATE UNIQUE INDEX u_email ON users(email); -- уникальный индекс для почтовых адресов
 
 CREATE INDEX l_category ON lots(category_id); -- индекс для поиска по категория
-CREATE INDEX l_name ON lots(name); -- индекс для поиска по названиям лотов
-
+CREATE INDEX l_name ON lots(name) -- индекс для поиска по названиям лотов
