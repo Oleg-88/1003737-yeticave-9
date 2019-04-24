@@ -43,5 +43,5 @@ CREATE TABLE users (
     bid_id INT NOT NULL -- лоты пользователя
 );
 
-CREATE INDEX l_category ON lots(category_id); -- индекс для поиска по категория
+CREATE INDEX l_category ON lots(category_id); -- индекс для поиска по категориям
 CREATE INDEX l_name ON lots(name) -- индекс для поиска по названиям лотов
