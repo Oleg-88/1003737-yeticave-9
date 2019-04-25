@@ -38,9 +38,7 @@ CREATE TABLE users (
     name VARCHAR(128) NOT NULL, -- имя пользователя
     password VARCHAR(128) NOT NULL, -- пароль
     avatar VARCHAR(128), -- аватар пользователя
-    contact TEXT NOT NULL, -- контактные данные
-    lot_id INT NOT NULL, -- лоты пользователя
-    bid_id INT NOT NULL -- лоты пользователя
+    contact TEXT NOT NULL -- контактные данные
 );
 
 CREATE INDEX l_category ON lots(category_id); -- индекс для поиска по категориям
