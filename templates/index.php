@@ -3,8 +3,8 @@
     <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
     <ul class="promo__list">
         <?php foreach ($categories as $category): ?>
-            <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html"><?=htmlspecialchars($category);?></a>
+            <li class="promo__item promo__item--<?=$category['category_en'];?>">
+                <a class="promo__link" href="pages/all-lots.html"><?=htmlspecialchars($category['name']);?></a>
             </li>
         <?php endforeach; ?>
     </ul>
@@ -27,8 +27,8 @@
                             <span class="lot__amount">Стартовая цена</span>
                             <span class="lot__cost"><?=prices($item['price']);?></span>
                         </div>
-                        <div class="lot__timer timer <?php if (get_enough_time($end_date)): ?>timer--finishing<?php endif; ?>">
-                            <?=get_end_time($end_date); ?>
+                        <div class="lot__timer timer <?php if (get_enough_time($item['end_date'])): ?>timer--finishing<?php endif; ?>">
+                            <?=get_end_time($item['end_date']); ?>
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,8 @@ USE yeticave;
 
 CREATE TABLE categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(128) NOT NULL -- название
+    name VARCHAR(128) NOT NULL, -- название
+    category_en VARCHAR(128) NOT NULL -- категория для вставки в меню в html
 );
 
 CREATE TABLE lots (
