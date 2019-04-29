@@ -169,7 +169,24 @@ function db_fetch_data($link, $sql, $data = []) {
     $res = mysqli_stmt_get_result($stmt);
     if ($res) {
         $result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+        return $result;
+    } else {
+        $error = mysqli_error($link);
+        print("Ошибка MySQL: " . $error);
     }
-    return $result;
 }
 
+function get_categories($link) {
+    $sql = "SELECT * FROM categories;";
+    $categories = db_fetch_data($link, $sql);
+    return $categories;
+}
+
+function get_items($link) {
+    $sql = "SELECT l.id AS id, l.name AS name, image, price, UNIX_TIMESTAMP(l.end_date) AS end_date, c.name AS category
+            FROM lots l
+            JOIN categories c ON l.category_id = c.id
+            ORDER BY l.id DESC;";
+    $items = db_fetch_data($link, $sql);
+    return $items;
+}
