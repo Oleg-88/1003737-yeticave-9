@@ -2,15 +2,7 @@
 
 require_once 'data.php';
 require_once 'helpers.php';
-
-$link = mysqli_connect("localhost", "root", "", "yeticave");
-if (!$link) {
-    print("Ошибка подключения: " . mysqli_connect_error());
-} else {
-    print("Соединение установлено");
-}
-
-mysqli_set_charset($link, "utf8");
+require_once 'start.php';
 
 $categories = get_categories($link);
 $items = get_items($link);
