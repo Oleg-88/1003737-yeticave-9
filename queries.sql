@@ -1,7 +1,12 @@
 USE yeticave;
 
-INSERT INTO categories (name)
-VALUES ('Доски и лыжи'), ('Крепления'), ('Ботинки'), ('Одежда'), ('Инструменты'), ('Разное');
+INSERT INTO categories (name, category_en)
+VALUES  ('Доски и лыжи', 'boards'),
+        ('Крепления', 'attachment'),
+        ('Ботинки', 'boots'),
+        ('Одежда', 'clothing'),
+        ('Инструменты', 'tools'),
+        ('Разное', 'other');
 
 INSERT INTO users (email, name, password, contact)
 VALUES  ('oleg.russak88@gmail.com', 'Олег', '123', 'Почта - oleg.russak88@gmail.com'),
@@ -29,7 +34,7 @@ VALUES  (500000, 1, 2),
         (555000, 2, 1);
 
 -- получить все категории
-SELECT * FROM categories;
+SELECT name FROM categories;
 
 -- получить самые новые, открытые лоты. Каждый лот должен включать название, стартовую цену, ссылку на изображение, цену, название категории;
 SELECT l.name, price, image, max(bid) as win_bid, category FROM lots l
