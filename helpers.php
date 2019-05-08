@@ -162,34 +162,30 @@ function get_enough_time($end_date) {
     return $not_enough_time;
 }
 
-function db_fetch_data($link, $sql, $data = []) {
+function db_fetch_data($type, $link, $sql, $data = []){
     $result = [];
     $stmt = db_get_prepare_stmt($link, $sql, $data);
     mysqli_stmt_execute($stmt);
     $res = mysqli_stmt_get_result($stmt);
-    if ($res) {
-        $result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+    if ($type) {
+        if ($res) {
+            $result = mysqli_fetch_assoc($res);
+        }
         return $result;
     } else {
-        $error = mysqli_error($link);
-        print("Ошибка MySQL: " . $error);
+        if ($res) {
+            $result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+            return $result;
+        } else {
+            $error = mysqli_error($link);
+            print("Ошибка MySQL: " . $error);
+        }
     }
-}
-
-function db_fetch_data_X1($link, $sql, $data = []) {
-    $result = [];
-    $stmt = db_get_prepare_stmt($link, $sql, $data);
-    mysqli_stmt_execute($stmt);
-    $res = mysqli_stmt_get_result($stmt);
-    if ($res) {
-        $result = mysqli_fetch_assoc($res);
-    }
-    return $result;
 }
 
 function get_categories($link) {
     $sql = "SELECT * FROM categories;";
-    $categories = db_fetch_data($link, $sql);
+    $categories = db_fetch_data(false, $link, $sql);
     return $categories;
 }
 
@@ -198,7 +194,7 @@ function get_items($link) {
             FROM lots l
             JOIN categories c ON l.category_id = c.id
             ORDER BY l.id DESC;";
-    $lots = db_fetch_data($link, $sql);
+    $lots = db_fetch_data(false, $link, $sql);
     return $lots;
 }
 
@@ -208,6 +204,6 @@ function get_lot($link, $lot_id) {
             FROM lots l
             JOIN categories c ON l.category_id = c.id
             WHERE l.id = $lot_id";
-    $lot = db_fetch_data_X1($link, $sql);
+    $lot = db_fetch_data(true, $link, $sql);
     return $lot;
 }
