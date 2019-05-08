@@ -149,26 +149,31 @@ function prices($item) {
 }
 
 function get_end_time($end_date) {
-    $end_time_sec = $end_date - strtotime("now");
-    $end_time = date("H:i", strtotime("today") + $end_time_sec);
+    $end_time_sec = strtotime($end_date) - strtotime("now");
+    $end_time = date("H:i", $end_time_sec);
     return $end_time;
 }
 
 function get_enough_time($end_date) {
     $not_enough_time = false;
-    if($end_date - strtotime("now") < 3601){
+    if(strtotime($end_date) - strtotime("now") < 3601){
         $not_enough_time = true;
     }
     return $not_enough_time;
 }
 
-function db_fetch_data($link, $sql, $data = []) {
+function db_fetch_data($link, $sql, $type = false, $data = [])
+{
     $result = [];
     $stmt = db_get_prepare_stmt($link, $sql, $data);
     mysqli_stmt_execute($stmt);
     $res = mysqli_stmt_get_result($stmt);
     if ($res) {
-        $result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+        if ($type) {
+            $result = mysqli_fetch_assoc($res);
+        } else {
+            $result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+        }
         return $result;
     } else {
         $error = mysqli_error($link);
@@ -187,6 +192,16 @@ function get_items($link) {
             FROM lots l
             JOIN categories c ON l.category_id = c.id
             ORDER BY l.id DESC;";
-    $items = db_fetch_data($link, $sql);
-    return $items;
+    $lots = db_fetch_data($link, $sql);
+    return $lots;
+}
+
+function get_lot($link, $lot_id) {
+    $sql = "SELECT l.id AS id, l.name AS name, image, price, UNIX_TIMESTAMP(l.end_date) AS end_date, 
+       c.name AS category, description
+            FROM lots l
+            JOIN categories c ON l.category_id = c.id
+            WHERE l.id = $lot_id";
+    $lot = db_fetch_data($link, $sql, true);
+    return $lot;
 }

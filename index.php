@@ -5,11 +5,11 @@ require_once 'helpers.php';
 require_once 'start.php';
 
 $categories = get_categories($link);
-$items = get_items($link);
+$lots = get_items($link);
 
 $page_content = include_template('index.php', [
     'categories' => $categories,
-    'items' => $items,
+    'lots' => $lots,
     ]
 );
 
