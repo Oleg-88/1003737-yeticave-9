@@ -66,6 +66,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      $lot_id = mysqli_insert_id($link);
      header("Location: lot.php?id=" . $lot_id);
     }
+} else {
+    $page_content = include_template('add.php', [
+        'categories' => $categories
+    ]);
 }
 
 $layout_content = include_template('layout.php', [
