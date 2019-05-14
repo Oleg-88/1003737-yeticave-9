@@ -205,3 +205,18 @@ function get_lot($link, $lot_id) {
     $lot = db_fetch_data($link, $sql, true);
     return $lot;
 }
+
+function db_add_data($link, $sql, $data = []) {
+    $stmt = db_get_prepare_stmt($link, $sql, $data);
+    $result = mysqli_stmt_execute($stmt);
+    if ($result) {
+        $result = mysqli_insert_id($link);
+    }
+    return $result;
+}
+
+function add_lot($link, $data) {
+    $sql = "insert into lots (name, description, image, price, end_date, bet_step, user_id, category_id)
+            values (?, ?, ?, ?, ?, ?, ?, ?)";
+    db_add_data($link, $sql, $data);
+}
