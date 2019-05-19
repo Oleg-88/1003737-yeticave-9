@@ -6,7 +6,7 @@
             </li>
         <?php endforeach; ?>
     </ul>
-        </nav>
+</nav>
         <section class="lot-item container">
             <h2><?= htmlspecialchars($lot['name']); ?></h2>
             <div class="lot-item__content">
